@@ -294,3 +294,10 @@ test('plugins', () => {
     '<div class="uppercase line-clamp-1 sm:line-clamp-2"></div>'
   )
 })
+
+test('typescript', () => {
+  expect(format(';<View style={[tailwind("bg-white flex-1"), style]}/>', {
+    parser: 'typescript',
+    trailingComma: 'none',
+  })).toEqual(";<View style={[tailwind('flex-1 bg-white'), style]} />")
+})
